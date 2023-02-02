@@ -1,0 +1,474 @@
+export const description =
+  'In this section we will review 14 major patterns and problems used in Data Structures and Algorithms. We will also review the most common solutions to these problems and their time and space complexity.'
+
+# Sliding Window
+
+A pattern used when given an `array` or `linked list`. Used when we need to perform a required operation on a specific window size.
+
+## Maximum sum subarray of size K (easy)
+
+### Description: You have an array of N positive integers and a positive integer `num`. You have to find the Maximum Sum Subarray of size `num`.
+
+```js
+function maxSumSubarray(arr, num) {
+  // variables
+  let maxSum = 0
+  let maxTemporarySum = 0
+
+  // edge cases
+  if (arr.length < num) return null
+
+  // first loop
+  for (let i = 0; i < num; i++) {
+    maxSum += arr[i]
+  }
+
+  // store the first sum
+  maxTemporarySum = maxSum
+
+  // second loop
+  for (let i = num; i < arr.length; i++) {
+    maxTemporarySum += -arr[i - num] + arr[i]
+    maxSum = Math.max(maxSum, maxTemporarySum)
+  }
+
+  // return the max sum
+  return maxSum
+}
+
+console.log(maxSumSubarray([1, 2, 5, 2, 8, 1, 5], 2)) // 10
+console.log(maxSumSubarray([1, 2, 5, 2, 8, 1, 5], 4)) // 17
+console.log(maxSumSubarray([4, 2, 1, 6], 1)) // 6
+console.log(maxSumSubarray([4, 2, 1, 6, 2], 4)) // 13
+
+// Time Complexity: O(n)
+// Space Complexity: O(1)
+```
+
+## Longest substring with `K` distinct characters (medium)
+
+### Description: Given a string you need to print longest possible substring that has exactly M unique characters. If there is more than one substring of longest possible length, then print any one of them.
+
+Here are the steps we can take in order to solve this using the sliding window technique:
+
+- Setup Variables
+- For Loop, rightChar
+- if else statement
+- While Loop, leftChar
+- if else, Incr start
+- Calculate Max & return
+
+<Row>
+  <Col>
+  <h2>Setup Variables</h2>
+  <p>We will need our left and right bounds for the window, `START` and `MAX`, as well as new `Object` to store data and progress as we iterate through the loops.</p>
+  </Col>
+  <Col>
+```js
+var lengthOfLongestSubstrK = function(s, k) {
+  // SETUP VARIABLES
+  let START = 0;
+  const SOFAR = new Map();
+  let MAX = 0;
+```
+  </Col>
+</Row>
+
+<Row>
+  <Col>
+  <h2>For Loop, rightChar</h2>
+  <p>Now we can setup a for loop to iterate through the array. We will define `END` starting at 0 which works the same way as `i` would but suitably named `END` as it is the index number of the right most element in our subarray.</p>
+  </Col>
+  <Col>
+```js
+for (let END = 0; END < s.length; END++){
+    let rightCHAR = s[END];
+```
+
+  </Col>
+</Row>
+
+<Row>
+  <Col>
+    <h2>if else statement</h2>
+    <p>
+      Continuing inside the for loop, we will setup a conditional `if else`
+      statement to either set count for `rightChar` = 1 or increment the count
+      by 1 is it already exists.
+    </p>
+  </Col>
+  <Col>
+    ```js if (!SOFAR.get(rightChar)){SOFAR.set(rightCHAR, 1)} else{' '}
+    {SOFAR.set(rightChar, SOFAR.get(rightCHAR) + 1)}
+    ```
+  </Col>
+</Row>
+
+<Row>
+  <Col>
+  <h2>While Loop, leftChar</h2>
+  <p>Setup a while loop that runs whenever our object `SOFAR` exceeds the length of `k`</p>
+  </Col>
+  <Col>
+```js
+while(SOFAR < k){
+  leftCHAR = s[START]
+```
+
+  </Col>
+</Row>
+
+<Row>
+  <Col>
+  <h2>if else, Incr start</h2>
+  <p>Setup conditional to decrement items if there are more than one</p>
+  </Col>
+  <Col>
+```js
+  if(SOFAR.get(leftCHAR) > 1){
+    SOFAR.set(SOFAR.get(leftCHAR) - 1)
+  } else SOFAR.delete(leftCHAR)
+
+START++
+}
+
+````
+  </Col>
+</Row>
+
+
+<Row>
+  <Col>
+  <h2>Calculate Max & return</h2>
+  <p>Here we use `Math.max` to return the greater of the final two values</p>
+  </Col>
+  <Col>
+
+```js
+MAX = Math.max(MAX, (END - START) + 1)
+}
+return MAX
+}
+````
+
+  </Col>
+</Row>
+
+### COMPLETE:
+
+```js
+var lengthOfLongestSubstringKDistinct = function (s, k) {
+  // SETUP VARIABLES
+  let START = 0
+  const SOFAR = new Map()
+  let MAX = 0
+
+  // ITERATE OVER s, our string, set END = 0
+  for (let END = 0; END < s.length; END++) {
+    // pull out our rightCHAR
+    let rightCHAR = s[END]
+
+    // if our Map does not contain the rightCHAR, then we want to set it to 1
+    if (!SOFAR.get(rightCHAR)) SOFAR.set(rightCHAR, 1)
+    // if it does contain the rightCHAR, then we want to increment it by 1
+    else SOFAR.set(rightCHAR, SOFAR.get(rightCHAR) + 1)
+
+    // NOW check the size (# of keys we have in SOFAR) and while it is > k
+    // THEN we have to decrement the START and move it to the right one
+    while (SOFAR.size > k) {
+      // so lets get our leftCHAR which = s[START]
+      let leftCHAR = s[START]
+
+      //SO IF > 1 leftCHAR we want to decrement (or DELETE) followed by increment our window START
+      if (SOFAR.get(leftCHAR) > 1) SOFAR.set(leftCHAR, SOFAR.get(leftCHAR) - 1)
+      else SOFAR.delete(leftCHAR)
+
+      START++
+    }
+    // calculate MAX using Math.max
+    MAX = Math.max(MAX, END - START + 1)
+  }
+  // return MAX
+  return MAX
+}
+
+// Test Cases
+lengthOfLongestSubstringKDistinct('atatrasrafr', 3) // returns 6
+lengthOfLongestSubstringKDistinct('atatrasrafr', 4) // returns 9
+```
+
+
+<h2> Squaring a sorted array (easy) </h2>
+
+
+### Description: Given an integer array nums sorted in non-decreasing order, return an array of the squares of each number sorted in non-decreasing order.
+
+Here are the steps we can take in order to solve this using the `two pointers` technique:
+
+- Setup Variables
+- While Loop
+- if else statement
+- return
+
+<Row>
+  <Col>
+  <h2>Setup Variables</h2>
+  </Col>
+  <Col>
+
+```js
+var sortedSquares = function (nums) {
+  //SETUP VARAIBLES
+  let LEFT = 0;
+  let RIGHT = nums.length - 1;
+  let resultIndex = nums.length - 1;
+  const result = new Array(nums.length).fill(0);
+```
+
+</Col>
+</Row>
+
+<Row>
+  <Col>
+  <h2>While Loop</h2>
+  <p>Setup a loop that iterates while LEFT &lt;= RIGHT and calculates the squared values</p>
+  </Col>
+  <Col>
+
+```js
+
+while(LEFT <= RIGHT){
+    leftVal = Math.pow(nums[LEFT], 2);
+    rightVal = Math.pow(nums[RIGHT], 2);
+```
+
+</Col>
+</Row>
+
+<Row>
+  <Col>
+  <h2>if else statement</h2>
+  <p>Setup condition to assign larger value (leftVal or rightVal) at index=resultIndex</p>
+  </Col>
+  <Col>
+
+```js
+if (leftVal < rightVal) {
+  result[resultIndex] = rightVal
+  RIGHT--
+} else {
+  result[resultIndex] = left
+  LEFT++
+}
+```
+
+  </Col>
+</Row>
+
+<Row>
+  <Col>
+
+<h2>return</h2>
+
+Finally we decrement the resultIndex and return the result.
+
+  </Col>
+  <Col>
+
+```js
+ 
+    resultIndex--;
+    }
+
+return result
+}
+
+````
+
+</Col>
+</Row>
+
+<h2>Complete</h2>
+ 
+```js
+
+var sortedSquares = function(nums) {
+  // SETUP VARIABLES
+  // result array with same length, all zeros
+  const result = new Array(nums.length).fill(0);
+  let RIGHT = nums.length - 1;
+  let LEFT = 0;
+  let resultIndex = nums.length - 1;
+
+  // WHILE LOOP
+  // check while left is <= right we have to check which is bigger
+  // the set values for leftVal and rightVal = the squared values
+  while (LEFT <= RIGHT) {
+    let leftVal = Math.pow(nums[LEFT], 2);
+    let rightVal = Math.pow(nums[RIGHT], 2);
+    // IF ELSE STATEMENT
+    // Then as long as leftVal < rightVal, the resultIndex = rightVal,
+    // otherwise = leftVal
+    if (leftVal < rightVal) {
+      result[resultIndex] = rightVal;
+      RIGHT--;
+    } else {
+      result[resultIndex] = leftVal;
+      LEFT++;
+    }
+    // decremeent resultIndex and return
+    resultIndex--;
+  }
+  // RETURN
+  return result;
+}
+```
+
+## Triplets that sum to zero (medium)
+
+Given an integer array `nums`, return all the triplets [`nums[i]`, `nums[j]`, `nums[k]`] such that `i != j`, `i != k`, and `j != k`, and `nums[i] + nums[j] + nums[k] == 0`.
+
+Notice that the solution set must not contain duplicate triplets.
+
+Here are the steps we can take in order to solve this using the `two pointers` technique:
+
+- Setup
+  - Function and two variables, empty array `result` and sorted `nums`
+- For Loop
+  - setup loop and start with if statement to eliminate duplicates
+  - three more variables: `TARGET` to make `sum = 0`, `LEFT` at one more than `i`, and `RIGHT` at last index of `nums`
+- While Loop
+  - one more variable, `sum` of two indices `LEFT` and `RIGHT`
+  - WHILE LOOP with three conditional statements (`if`, `else if`, `else`)
+  - decr / incr bounds OR if equal
+    - push to result, check for duplicates on both sides, incr/decr
+- return
+- Complete
+
+<Row>
+  <Col>
+  <h2>Setup</h2>
+  <p>Function and two variables, empty array `result` and sorted `nums`</p>
+</Col>
+
+<Col>
+
+```js
+var threeSum = function(nums) {
+  result= [];
+  nums = nums.sort((a, b) => a - b);
+
+```
+
+</Col>
+</Row>
+
+<Row>
+  <Col>
+  <h2>For Loop</h2>
+  <p>
+    - setup loop and start with if statement to eliminate duplicates
+    - three more variables: `TARGET` to make `sum`=0, `LEFT` at one more than `i`, and `RIGHT` at last index of `nums`
+  </p>
+  </Col>
+  <Col>
+
+```js
+for (let i = 0; i < nums.length; i++){
+  if(i > 0 && nums[i] === nums[i - 1]){
+    let TARGET = 0 - nums[i]
+    let LEFT = i + 1
+    let RIGHT = nums.length - 1
+
+```
+
+</Col>
+</Row>
+
+
+<Row>
+  <Col>
+  <h2>While Loop</h2>
+  <p>
+    - one more variable, `sum` of two indices LEFT and RIGHT
+    - WHILE LOOP with if if-else and else statements for three scenarios
+    - decr / incr bounds OR if equal
+      - push to result, check for duplicates on both sides, incr/decr
+  </p>
+  </Col>
+  <Col>
+
+```js
+    while(LEFT < RIGHT) {
+      const sum = nums[LEFT] + nums[RIGHT]
+      if(sum > target){
+        RIGHT--
+      } else if (sum < target){
+        LEFT--
+      } else {
+        return.push([nums[i], nums[LEFT], ums[RIGHT]])
+        while (nums[LEFT] === nums[LEFT + 1]) LEFT++
+        while (nums[RIGHT] === nums[RIGHT - 1]) RIGHT--
+        LEFT ++
+        RIGHT --
+      }
+    }
+```
+
+</Col>
+</Row>
+
+<Row>
+  <Col>
+  <h2>return</h2>
+  </Col>
+  <Col>
+
+```js
+  return result
+}
+```
+
+</Col>
+</Row>
+
+<h2>Complete</h2>
+ 
+```js
+var threeSum = function(nums) {
+  result= [];
+  nums = nums.sort((a, b) => a - b);
+
+  for (let i = 0; i < nums.length; i++){
+    if (i > 0 && nums[i] === nums[i-1]) continue;
+    const TARGET = 0 - nums[i];
+    let LEFT = i + 1;
+    let RIGHT = nums.length - 1;
+    // So sum = nums[LEFT] + nums[RIGHT]
+    // Case 1: sum > TARGET
+    // Case 2: sum < TARGET
+    // Case 3: sum = TARGET = solution!
+
+    // Iterate through and eliminate when not equal
+    // start with while loop condition when R > L, otherwise we have less than 2 elements
+    while(RIGHT > LEFT) {
+      const sum = nums[LEFT] + nums[RIGHT]
+      if(sum > target) {
+        //eliminate last element and decr RIGHT
+        RIGHT--;
+      } else if (sum < target){
+        // eliminate first element and inc LEFT 
+        LEFT++;
+      } else {
+        // push the results and use while loops to skip duplicates
+        result.push([nums[i], nums[LEFT], nums[RIGHT]]);
+        while(nums[LEFT] === nums[LEFT + 1]) LEFT++;
+        while(nums[RIGHT] === nums[RIGHT + 1]) RIGHT--;
+        LEFT++;
+        RIGHT--;
+      }
+    }
+  return result
+}
+
+```
