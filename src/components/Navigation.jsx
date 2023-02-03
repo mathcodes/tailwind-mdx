@@ -187,12 +187,9 @@ export const navigation = [
   {
     title: 'Guides',
     links: [
-      { title: 'Introduction', href: '/' },
-      { title: 'Quickstart', href: '/quickstart' },
-      { title: 'SDKs', href: '/sdks' },
-      { title: 'Authentication', href: '/authentication' },
-      { title: 'Pagination', href: '/pagination' },
-      { title: 'Errors', href: '/errors' },
+      { title: 'About', href: '/about' },
+      { title: 'Projects', href: '/projects' },
+      { title: 'Services', href: '/services' },
       { title: 'DSA', href: '/dsa' },
     ],
   },
@@ -212,9 +209,11 @@ export function Navigation(props) {
   return (
     <nav {...props}>
       <ul role="list">
-        <TopLevelNavItem href="/">API</TopLevelNavItem>
-        <TopLevelNavItem href="#">Documentation</TopLevelNavItem>
-        <TopLevelNavItem href="#">Support</TopLevelNavItem>
+      <TopLevelNavItem href="/">API</TopLevelNavItem>
+        <TopLevelNavItem href="/about">About</TopLevelNavItem>
+        <TopLevelNavItem href="/projects">Projects</TopLevelNavItem>
+        <TopLevelNavItem href="/services">Services</TopLevelNavItem>
+        <TopLevelNavItem href="/dsa">DSA</TopLevelNavItem>
         {navigation.map((group, groupIndex) => (
           <NavigationGroup
             key={group.title}
