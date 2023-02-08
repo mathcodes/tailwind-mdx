@@ -1,4 +1,7 @@
 # Tailwind-mdx 
+<!-- make badge with icon for react -->
+<!-- make badge with icon for nextjs -->
+![Netlify Status](https://api.netlify.com/api/v1/badges/1b2c3d4e5f6g7h8i9j0k/deploy-status)
 
 Built with Next.js, Tailwind CSS, and MDX.
 

@@ -1,4 +1,5 @@
 import Image from 'next/image'
+
 import { Button } from '@/components/Button'
 import { Heading } from '@/components/Heading'
 import logoGo from '@/images/logos/go.svg'
@@ -6,33 +7,8 @@ import logoNode from '@/images/logos/node.svg'
 import logoPhp from '@/images/logos/php.svg'
 import logoPython from '@/images/logos/python.svg'
 import logoRuby from '@/images/logos/ruby.svg'
-import logoReact from '@/images/logos/ReactLogo.png'
-import logoJavaScript from '@/images/logos/js.png'
-import logoNextJS from '@/images/logos/nextjs.png'
-
 
 const libraries = [
-  {
-    href: '#',
-    name: 'Next.js',
-    description:
-      'Next.js is an open-source React front-end development web framework.',
-    logo: logoNextJS,
-  },
-  {
-    href: '#',
-    name: 'React',
-    description:
-      'A JavaScript library for building user interfaces.',
-    logo: logoReact,
-  },
-  {
-    href: '#',
-    name: 'JavaScript',
-    description:
-      'JavaScript is a cross-platform, object-oriented scripting language.',
-    logo: logoJavaScript,
-  },
   {
     href: '#',
     name: 'PHP',
@@ -74,7 +50,7 @@ export function Libraries() {
   return (
     <div className="my-16 xl:max-w-none">
       <Heading level={2} id="official-libraries">
-        Skills
+        Official libraries
       </Heading>
       <div className="not-prose mt-4 grid grid-cols-1 gap-x-6 gap-y-10 border-t border-zinc-900/5 pt-10 dark:border-white/5 sm:grid-cols-2 xl:max-w-none xl:grid-cols-3">
         {libraries.map((library) => (
@@ -95,7 +71,7 @@ export function Libraries() {
             <Image
               src={library.logo}
               alt=""
-              className="h-12 w-auto"
+              className="h-12 w-12"
               unoptimized
             />
           </div>

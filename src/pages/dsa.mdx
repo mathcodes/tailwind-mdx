@@ -60,8 +60,8 @@ Here are the steps we can take in order to solve this using the sliding window t
 
 <Row>
   <Col>
-  <h2>Setup Variables</h2>
-  <p>We will need our left and right bounds for the window, `START` and `MAX`, as well as new `Object` to store data and progress as we iterate through the loops.</p>
+  Setup Variables
+  We will need our left and right bounds for the window, `START` and `MAX`, as well as new `Object` to store data and progress as we iterate through the loops.
   </Col>
   <Col>
 ```js
@@ -76,8 +76,8 @@ var lengthOfLongestSubstrK = function(s, k) {
 
 <Row>
   <Col>
-  <h2>For Loop, rightChar</h2>
-  <p>Now we can setup a for loop to iterate through the array. We will define `END` starting at 0 which works the same way as `i` would but suitably named `END` as it is the index number of the right most element in our subarray.</p>
+  For Loop, rightChar
+  Now we can setup a for loop to iterate through the array. We will define `END` starting at 0 which works the same way as `i` would but suitably named `END` as it is the index number of the right most element in our subarray.
   </Col>
   <Col>
 ```js
@@ -90,12 +90,12 @@ for (let END = 0; END < s.length; END++){
 
 <Row>
   <Col>
-    <h2>if else statement</h2>
-    <p>
+    if else statement
+    
       Continuing inside the for loop, we will setup a conditional `if else`
       statement to either set count for `rightChar` = 1 or increment the count
       by 1 is it already exists.
-    </p>
+    
   </Col>
   <Col>
     ```js if (!SOFAR.get(rightChar)){SOFAR.set(rightCHAR, 1)} else{' '}
@@ -106,8 +106,8 @@ for (let END = 0; END < s.length; END++){
 
 <Row>
   <Col>
-  <h2>While Loop, leftChar</h2>
-  <p>Setup a while loop that runs whenever our object `SOFAR` exceeds the length of `k`</p>
+  While Loop, leftChar
+  Setup a while loop that runs whenever our object `SOFAR` exceeds the length of `k`
   </Col>
   <Col>
 ```js
@@ -120,8 +120,8 @@ while(SOFAR < k){
 
 <Row>
   <Col>
-  <h2>if else, Incr start</h2>
-  <p>Setup conditional to decrement items if there are more than one</p>
+  if else, Incr start
+  Setup conditional to decrement items if there are more than one
   </Col>
   <Col>
 ```js
@@ -139,8 +139,8 @@ START++
 
 <Row>
   <Col>
-  <h2>Calculate Max & return</h2>
-  <p>Here we use `Math.max` to return the greater of the final two values</p>
+  Calculate Max & return
+  Here we use `Math.max` to return the greater of the final two values
   </Col>
   <Col>
 
@@ -198,7 +198,7 @@ lengthOfLongestSubstringKDistinct('atatrasrafr', 4) // returns 9
 ```
 
 
-<h2> Squaring a sorted array (easy) </h2>
+ Squaring a sorted array (easy) 
 
 
 ### Description: Given an integer array nums sorted in non-decreasing order, return an array of the squares of each number sorted in non-decreasing order.
@@ -212,7 +212,7 @@ Here are the steps we can take in order to solve this using the `two pointers` t
 
 <Row>
   <Col>
-  <h2>Setup Variables</h2>
+  Setup Variables
   </Col>
   <Col>
 
@@ -230,8 +230,8 @@ var sortedSquares = function (nums) {
 
 <Row>
   <Col>
-  <h2>While Loop</h2>
-  <p>Setup a loop that iterates while LEFT &lt;= RIGHT and calculates the squared values</p>
+  While Loop
+  Setup a loop that iterates while LEFT &lt;= RIGHT and calculates the squared values
   </Col>
   <Col>
 
@@ -247,8 +247,8 @@ while(LEFT <= RIGHT){
 
 <Row>
   <Col>
-  <h2>if else statement</h2>
-  <p>Setup condition to assign larger value (leftVal or rightVal) at index=resultIndex</p>
+  if else statement
+  Setup condition to assign larger value (leftVal or rightVal) at index=resultIndex
   </Col>
   <Col>
 
@@ -268,7 +268,7 @@ if (leftVal < rightVal) {
 <Row>
   <Col>
 
-<h2>return</h2>
+return
 
 Finally we decrement the resultIndex and return the result.
 
@@ -288,7 +288,7 @@ return result
 </Col>
 </Row>
 
-<h2>Complete</h2>
+Complete
  
 ```js
 
@@ -347,8 +347,8 @@ Here are the steps we can take in order to solve this using the `two pointers` t
 
 <Row>
   <Col>
-  <h2>Setup</h2>
-  <p>Function and two variables, empty array `result` and sorted `nums`</p>
+  Setup
+  Function and two variables, empty array `result` and sorted `nums`
 </Col>
 
 <Col>
@@ -365,11 +365,11 @@ var threeSum = function(nums) {
 
 <Row>
   <Col>
-  <h2>For Loop</h2>
-  <p>
+  For Loop
+  
     - setup loop and start with if statement to eliminate duplicates
     - three more variables: `TARGET` to make `sum`=0, `LEFT` at one more than `i`, and `RIGHT` at last index of `nums`
-  </p>
+  
   </Col>
   <Col>
 
@@ -388,13 +388,13 @@ for (let i = 0; i < nums.length; i++){
 
 <Row>
   <Col>
-  <h2>While Loop</h2>
-  <p>
+  While Loop
+  
     - one more variable, `sum` of two indices LEFT and RIGHT
     - WHILE LOOP with if if-else and else statements for three scenarios
     - decr / incr bounds OR if equal
       - push to result, check for duplicates on both sides, incr/decr
-  </p>
+  
   </Col>
   <Col>
 
@@ -420,7 +420,7 @@ for (let i = 0; i < nums.length; i++){
 
 <Row>
   <Col>
-  <h2>return</h2>
+  return
   </Col>
   <Col>
 
@@ -432,7 +432,7 @@ for (let i = 0; i < nums.length; i++){
 </Col>
 </Row>
 
-<h2>Complete</h2>
+Complete
  
 ```js
 var threeSum = function(nums) {

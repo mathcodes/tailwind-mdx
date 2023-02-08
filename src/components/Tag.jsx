@@ -5,10 +5,10 @@ const variantStyles = {
 }
 
 const colorStyles = {
-  orange: {
-    small: 'text-orange-500 dark:text-orange-400',
+  emerald: {
+    small: 'text-emerald-500 dark:text-emerald-400',
     medium:
-      'ring-orange-300 dark:ring-orange-400/30 bg-orange-400/10 text-orange-500 dark:text-orange-400',
+      'ring-emerald-300 dark:ring-emerald-400/30 bg-emerald-400/10 text-emerald-500 dark:text-emerald-400',
   },
   sky: {
     small: 'text-sky-500',
@@ -33,7 +33,7 @@ const colorStyles = {
 }
 
 const valueColorMap = {
-  get: 'orange',
+  get: 'emerald',
   post: 'sky',
   put: 'amber',
   delete: 'rose',
@@ -42,7 +42,7 @@ const valueColorMap = {
 export function Tag({
   children,
   variant = 'medium',
-  color = valueColorMap[children.toLowerCase()] ?? 'orange',
+  color = valueColorMap[children.toLowerCase()] ?? 'emerald',
 }) {
   return (
     <span
