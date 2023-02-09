@@ -33,6 +33,8 @@ const colorStyles = {
 }
 
 const valueColorMap = {
+  time: 'emerald',
+  space: 'amber',
   get: 'emerald',
   post: 'sky',
   put: 'amber',

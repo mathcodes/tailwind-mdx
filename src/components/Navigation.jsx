@@ -122,7 +122,7 @@ function NavigationGroup({ group, className }) {
     <li className={clsx('relative mt-6', className)}>
       <motion.h2
         layout="position"
-        className="text-xs font-semibold text-zinc-900 dark:text-white"
+        className="text-xs rounded-md pl-1 font-semibold text-zinc-900 dark:text-white {{ className: 'text-3xl bg-gradient-to-r from-[#D7EDEA] to-[#F4FBDF] opacity-100 transition duration-300 group-hover:opacity-100 dark:from-[#202D2E] dark:to-[#303428]' }}"
       >
         {group.title}
       </motion.h2>
@@ -143,7 +143,7 @@ function NavigationGroup({ group, className }) {
         </AnimatePresence>
         <ul role="list" className="border-l border-transparent">
           {group.links.map((link) => (
-            <motion.li key={link.href} layout="position" className="relative">
+            <motion.li key={link.href} layout="position" className="relative ">
               <NavLink href={link.href} active={link.href === router.pathname}>
                 {link.title}
               </NavLink>
@@ -185,7 +185,7 @@ function NavigationGroup({ group, className }) {
 
 export const navigation = [
   {
-    title: 'Guides',
+    title: 'Services',
     links: [
       { title: 'About', href: '/about' },
       { title: 'Projects', href: '/projects' },
