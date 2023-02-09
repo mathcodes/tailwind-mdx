@@ -30,6 +30,7 @@ const colorStyles = {
     medium:
       'ring-zinc-200 bg-zinc-50 text-zinc-500 dark:ring-zinc-500/20 dark:bg-zinc-400/10 dark:text-zinc-400',
   },
+
 }
 
 const valueColorMap = {
@@ -38,7 +39,7 @@ const valueColorMap = {
   easy: 'emerald',
   time: 'emerald',
   space: 'amber',
-  get: 'pink',
+  get: 'emerald',
   post: 'sky',
   put: 'amber',
   delete: 'rose',
@@ -47,7 +48,7 @@ const valueColorMap = {
 export function Tag({
   children,
   variant = 'medium',
-  color = valueColorMap[children.toLowerCase()] ?? 'pink',
+  color = valueColorMap[children.toLowerCase()] ?? 'emerald',
 }) {
   return (
     <span
