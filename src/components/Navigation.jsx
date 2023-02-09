@@ -9,6 +9,11 @@ import { useIsInsideMobileNavigation } from '@/components/MobileNavigation'
 import { useSectionStore } from '@/components/SectionProvider'
 import { Tag } from '@/components/Tag'
 import { remToPx } from '@/lib/remToPx'
+import { PhoneIcon } from './icons/PhoneIcon'
+import { EnvelopeIcon } from './icons/EnvelopeIcon'
+import { LinkedInIcon } from './icons/LinkedInIcon'
+import { GitHubIcon } from './icons/GitHubIcon'
+import { TwitterIcon } from './icons/TwitterIcon'
 
 function useInitialValue(value, condition = true) {
   let initialValue = useRef(value).current
@@ -122,7 +127,7 @@ function NavigationGroup({ group, className }) {
     <li className={clsx('relative mt-6', className)}>
       <motion.h2
         layout="position"
-        className="text-xs rounded-md pl-1 font-semibold text-zinc-900 dark:text-white {{ className: 'text-3xl bg-gradient-to-r from-[#D7EDEA] to-[#F4FBDF] opacity-100 transition duration-300 group-hover:opacity-100 dark:from-[#202D2E] dark:to-[#303428]' }}"
+        className="text-xs rounded-md pl-1 font-semibold text-zinc-900 dark:text-white text-xl bg-gradient-to-r from-[#D7EDEA] to-[#F4FBDF] opacity-100 transition duration-300 group-hover:opacity-100 dark:from-[#202D2E] dark:to-[#303428]"
       >
         {group.title}
       </motion.h2>
@@ -144,8 +149,10 @@ function NavigationGroup({ group, className }) {
         <ul role="list" className="border-l border-transparent">
           {group.links.map((link) => (
             <motion.li key={link.href} layout="position" className="relative ">
-              <NavLink href={link.href} active={link.href === router.pathname}>
-                {link.title}
+              <NavLink href={link.href} active={link.href === router.pathname} >
+                <div>
+                  {link.icon}
+                </div>
               </NavLink>
               <AnimatePresence mode="popLayout" initial={false}>
                 {link.href === router.pathname && sections.length > 0 && (
@@ -185,22 +192,22 @@ function NavigationGroup({ group, className }) {
 
 export const navigation = [
   {
-    title: 'Services',
+    title: 'Jon Christie',
     links: [
-      { title: 'About', href: '/about' },
-      { title: 'Projects', href: '/projects' },
-      { title: 'Services', href: '/services' },
-      { title: 'DSA', href: '/dsa' },
+      { title: 'About', href: '/about', icon: 'About' },
+      { title: 'Projects', href: '/projects', icon: 'Projects' },
+      { title: 'Services', href: '/services', icon: 'Services' },
+      { title: 'DSA', href: '/dsa',   icon: 'DSA' },
     ],
   },
   {
-    title: 'Resources',
+    title: 'Contact Me',
     links: [
-      { title: 'Contacts', href: '/contacts' },
-      { title: 'Conversations', href: '/conversations' },
-      { title: 'Messages', href: '/messages' },
-      { title: 'Groups', href: '/groups' },
-      { title: 'Attachments', href: '/attachments' },
+      { title: 'Phone', href: 'tel:1-919-368-3369', icon: <PhoneIcon /> },
+      { title: 'Email', href: 'mailto:jonpchristie@gmail.com', icon: <EnvelopeIcon /> },
+      { title: 'LinkedIn', href: 'https://www.linkedin.com/in/jonpchristie/', icon: <LinkedInIcon /> },
+      { title: 'Twitter', href: 'https://twitter.com/jcircle9', icon: <TwitterIcon /> },
+      { title: 'GitHub', href: 'https://www.github.com/mathcodes', icon: <GitHubIcon /> },
     ],
   },
 ]
@@ -209,7 +216,7 @@ export function Navigation(props) {
   return (
     <nav {...props}>
       <ul role="list">
-      <TopLevelNavItem href="./">Home</TopLevelNavItem>
+        <TopLevelNavItem href="./">Home</TopLevelNavItem>
         <TopLevelNavItem href="/about">About</TopLevelNavItem>
         <TopLevelNavItem href="/projects">Projects</TopLevelNavItem>
         <TopLevelNavItem href="/services">Services</TopLevelNavItem>
@@ -220,6 +227,7 @@ export function Navigation(props) {
             group={group}
             className={groupIndex === 0 && 'md:mt-0'}
           />
+
         ))}
         <li className="sticky bottom-0 z-10 mt-6 min-[416px]:hidden">
           <Button href="#" variant="filled" className="w-full">

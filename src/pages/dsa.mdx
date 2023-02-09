@@ -1,49 +1,72 @@
 import { Tag } from '../components/Tag'
+import { UpIcon } from '../components/icons/UpIcon'
 
 export const description =
   'In this section we will review 14 major patterns and problems used in Data Structures and Algorithms. We will also review the most common solutions to these problems and their time and space complexity.'
 
-# Data Structures and Algorithms
+# Data Structures and Algorithms {{ className: 'text-3xl rounded-md pl-2 bg-gradient-to-r from-[#D7EDEA] to-[#F4FBDF] opacity-100 transition duration-300 group-hover:opacity-100 dark:from-[#202D2E] dark:to-[#303428]' }}
 
 In this section we will review 14 major patterns and problems used in Data Structures and Algorithms. We will also review the most common solutions to these problems and their time and space complexity.
 
 ## Table of Contents
 
 - [Sliding Window](#sliding-window)
-  - [Maximum sum subarray of size K (easy)](#maximum-sum-subarray-of-size-k-easy)
-  - [Longest substring with `K` distinct characters (medium)](#longest-substring-with-k-distinct-characters-medium)
+  - [Maximum sum subarray of size K
+    <Tag variant="medium">Easy</Tag> ](#maximum-sum-subarray-of-size-k)
+  - [Longest substring with `K` distinct characters
+    <Tag variant="medium">Medium</Tag> ](#longest-substring-with-k-distinct-characters)
 - [Two Pointers](#two-pointers)
-  - [Pair with target sum (easy)](#pair-with-target-sum-easy)
-  - [Squaring a sorted array (easy)](#squaring-a-sorted-array-easy)
-  - [Triplet sum to zero (medium)](#triplet-sum-to-zero-medium)
+  - [Pair with target sum
+    <Tag variant="medium">Easy</Tag> ](#pair-with-target-sum)
+  - [Squaring a sorted array
+    <Tag variant="medium">Easy</Tag> ](#squaring-a-sorted-array)
+  - [Triplet sum to zero
+    <Tag variant="medium">Medium</Tag> ](#triplet-sum-to-zero)
 - [Fast and Slow Pointers](#fast-and-slow-pointers)
-  - [Linked List Cycle (easy)](#linked-list-cycle-easy)
-  - [Palindrome Linked List (medium)](#palindrome-linked-list-medium)
-  - [Middle of the Linked List (easy)](#middle-of-the-linked-list-easy)
+  - [Linked List Cycle
+    <Tag variant="medium">Easy</Tag> ](#linked-list-cycle)
+  - [Palindrome Linked List
+    <Tag variant="medium">Medium</Tag> ](#palindrome-linked-list)
+  - [Middle of the Linked List
+    <Tag variant="medium">Medium</Tag>](#middle-of-the-linked-list)
 - [Merge Intervals](#merge-intervals)
-  - [Insert Interval (medium)](#insert-interval-medium)
-  - [Intervals Intersection (medium)](#intervals-intersection-medium)
-  - [Conflicting Appointments (medium)](#conflicting-appointments-medium)
-  - [Maximum CPU Load (hard)](#maximum-cpu-load-hard)
+  - [Insert Interval
+    <Tag variant="medium">Medium</Tag> ](#insert-interval)
+  - [Intervals Intersection
+    <Tag variant="medium">Medium</Tag> ](#intervals-intersection)
+  - [Conflicting Appointments
+    <Tag variant="medium">Medium</Tag> ](#conflicting-appointments)
+  - [Maximum CPU Load
+    <Tag variant="medium">Hard</Tag>](#maximum-cpu-load)
 - [Cyclic Sort](#cyclic-sort)
-  - [Find the Missing Number (easy)](#find-the-missing-number-easy)
-  - [Find all Missing Numbers (easy)](#find-all-missing-numbers-easy)
-  - [Find the Duplicate Number (easy)](#find-the-duplicate-number-easy)
-  - [Find all Duplicate Numbers (easy)](#find-all-duplicate-numbers-easy)
-  - [Find the Missing Positive Number (medium)](#find-the-missing-positive-number-medium)
+  - [Find the Missing Number
+    <Tag variant="medium">Easy</Tag> ](#find-the-missing-number)
+  - [Find the Missing Positive Number
+    <Tag variant="medium">Medium</Tag> ](#find-the-missing-positive-number)
 - [In-place Reversal of a LinkedList](#in-place-reversal-of-a-linkedlist)
-  - [Reverse a LinkedList (easy)](#reverse-a-linkedlist-easy)
-  - [Reverse a Sub-list (medium)](#reverse-a-sub-list-medium)
-  - [Reverse every K-element Sub-list (medium)](#reverse-every-k-element-sub-list-medium)
+  - [Reverse a LinkedList
+    <Tag variant="medium">Easy</Tag> ](#reverse-a-linkedlist)
+  - [Reverse a Sub-list
+    <Tag variant="medium">Medium</Tag> ](#reverse-a-sub-list)
+  - [Reverse every K-element Sub-list
+    <Tag variant="medium">Medium</Tag> ](#reverse-every-k-element-sub-list)
 - [Tree Breadth First Search](#tree-breadth-first-search)
-  - [Binary Tree Level Order Traversal (easy)](#binary-tree-level-order-traversal-easy)
-  - [Reverse Level Order Traversal (easy)](#reverse-level-order-traversal-easy)
-  - [Zigzag Traversal (medium)](#zigzag-traversal-medium)
-  - [Level Averages in a Binary Tree (easy)](#level-averages-in-a-binary-tree-easy)
-  - [Minimum Depth of a Binary Tree (easy)](#minimum-depth-of-a-binary-tree-easy)
-  - [Level Order Successor (easy)](#level-order-successor-easy)
-  - [Connect Level Order Siblings (medium)](#connect-level-order-siblings-medium)
-  - [Connect All Level Order Siblings (medium)](#connect-all-level-order-siblings-medium)
+  - [Binary Tree Level Order Traversal
+    <Tag variant="medium">Easy</Tag> ](#binary-tree-level-order-traversal)
+  - [Reverse Level Order Traversal
+    <Tag variant="medium">Easy</Tag> ](#reverse-level-order-traversal)
+  - [Zigzag Traversal
+    <Tag variant="medium">Medium</Tag> ](#zigzag-traversal)
+  - [Level Averages in a Binary Tree
+    <Tag variant="medium">Easy</Tag> ](#level-averages-in-a-binary-tree)
+  - [Minimum Depth of a Binary Tree
+    <Tag variant="medium">Easy</Tag> ](#minimum-depth-of-a-binary-tree)
+  - [Level Order Successor
+    <Tag variant="medium">Easy</Tag> ](#level-order-successor)
+  - [Connect Level Order Siblings
+    <Tag variant="medium">Medium</Tag> ](#connect-level-order-siblings)
+  - [Connect All Level Order Siblings
+    <Tag variant="medium">Medium</Tag> ](#connect-all-level-order-siblings)
 - [Tree Depth First Search](#tree-depth-first-search)
 - [Two Heaps](#two-heaps)
 - [Subsets](#subsets)
@@ -56,9 +79,18 @@ A pattern used when given an `array` or `linked list`. Used when we need to perf
 <Row>
   <Col>
 
-## Maximum sum subarray of size K (easy)
+## Maximum sum subarray of size K
 
-### Description: You have an array of N positive integers and a positive integer `num`. You have to find the Maximum Sum Subarray of size `num`.
+<div className="flex justify-between">
+  <Tag variant="medium">Easy</Tag>
+  <a href="#">
+    <UpIcon className="h-5 w-5 flex-none fill-emerald-500 stroke-emerald-800 dark:fill-emerald-200/20 dark:stroke-emerald-200" />
+  </a>
+</div>
+
+### Description: You have an array of N positive integers and a positive integer
+
+`num`. You have to find the Maximum Sum Subarray of size `num`.
 
 </Col>
 <Col>
@@ -105,7 +137,14 @@ console.log(maxSumSubarray([4, 2, 1, 6, 2], 4)) // 13
 <Row>
   <Col>
 
-## Longest substring with `K` distinct characters (medium)
+## Longest substring with `K` distinct characters
+
+<div className="flex justify-between">
+  <Tag variant="medium">Medium</Tag>
+  <a href="#">
+    <UpIcon className="h-5 w-5 flex-none fill-emerald-500 stroke-emerald-800 dark:fill-emerald-200/20 dark:stroke-emerald-200" />
+  </a>
+</div>
 
 ### Description: Given a string you need to print longest possible substring that has exactly M unique characters. If there is more than one substring of longest possible length, then print any one of them.
 
@@ -117,7 +156,6 @@ Here are the steps we can take in order to solve this using the sliding window t
 - While Loop, leftChar
 - if else, Incr start
 - Calculate Max & return
-
 
 </Col>
 <Col>
@@ -162,18 +200,23 @@ var lengthOfLongestSubstringKDistinct = function (s, k) {
 lengthOfLongestSubstringKDistinct('atatrasrafr', 3) // returns 6
 lengthOfLongestSubstringKDistinct('atatrasrafr', 4) // returns 9
 ```
+
 </Col>
 </Row>
-
-
-
 
 ## Two Pointers {{ className: 'text-3xl rounded-md pl-2 bg-gradient-to-r from-[#D7EDEA] to-[#F4FBDF] opacity-100 transition duration-300 group-hover:opacity-100 dark:from-[#202D2E] dark:to-[#303428]' }}
 
 <Row>
   <Col>
 
-## Pair with target sum (easy)
+## Pair with target sum
+
+<div className="flex justify-between">
+  <Tag variant="medium">Easy</Tag>
+  <a href="#">
+    <UpIcon className="h-5 w-5 flex-none fill-emerald-500 stroke-emerald-800 dark:fill-emerald-200/20 dark:stroke-emerald-200" />
+  </a>
+</div>
 
 Given an array[1, 2, 3, 4, 6] with target sum:
 
@@ -222,13 +265,19 @@ function pair_with_target_sum(arr, targetSum) {
 console.log(pair_with_target_sum([1, 2, 3, 4, 6], 6))
 console.log(pair_with_target_sum([2, 5, 9, 11], 11))
 ```
+
 </Col>
 </Row>
 
 <Row>
   <Col>
-## Squaring a sorted array (easy)
-
+## Squaring a sorted array
+<div className="flex justify-between">
+<Tag variant="medium">Medium</Tag> 
+<a href="#">
+  <UpIcon className="h-5 w-5 flex-none fill-emerald-500 stroke-emerald-800 dark:fill-emerald-200/20 dark:stroke-emerald-200" />
+</a>
+</div>
 Given a sorted array, create a new array containing squares of all the numbers of the input array in the sorted order.
 
 - First, we can use two pointers to iterate through the array.
@@ -282,7 +331,14 @@ function make_squares(arr) {
 <Row>
   <Col>
 
-## Triplet Sum to Zero (medium)
+## Triplet Sum to Zero
+
+<div className="flex justify-between">
+  <Tag variant="medium">Medium</Tag>
+  <a href="#">
+    <UpIcon className="h-5 w-5 flex-none fill-emerald-500 stroke-emerald-800 dark:fill-emerald-200/20 dark:stroke-emerald-200" />
+  </a>
+</div>
 
 Given an array of unsorted numbers, find all unique triplets in it that add up to zero.
 
@@ -362,13 +418,19 @@ console.log(search_triplets([-5, 2, -1, -2, 3])) //  [-5, 2, 3], [-2, -1, 3]
 </Col>
 </Row>
 
-
 ## Fast and Slow Pointers {{ className: 'text-3xl pl-2  rounded-md bg-gradient-to-r from-[#D7EDEA] to-[#F4FBDF] opacity-100 transition duration-300 group-hover:opacity-100 dark:from-[#202D2E] dark:to-[#303428]' }}
 
 <Row>
   <Col>
 
-## Linked List Cycle (easy)
+## Linked List Cycle
+
+<div className="flex justify-between">
+  <Tag variant="medium">Easy</Tag>
+  <a href="#">
+    <UpIcon className="h-5 w-5 flex-none fill-emerald-500 stroke-emerald-800 dark:fill-emerald-200/20 dark:stroke-emerald-200" />
+  </a>
+</div>
 
 Given the head of a Singly LinkedList, write a function to determine if the LinkedList has a cycle in it or not.
 
@@ -379,8 +441,8 @@ Given the head of a Singly LinkedList, write a function to determine if the Link
 - If the LinkedList does not have a cycle, the fast pointer will reach the end of the LinkedList.
 
 <div className="text-xs font-semibold text-zinc-900 dark:text-white">
-  <Tag variant="medium">TIME</Tag> O(N) - where ‘N’ is the total number of
-  nodes in the LinkedList.
+  <Tag variant="medium">TIME</Tag> O(N) - where ‘N’ is the total number of nodes
+  in the LinkedList.
 </div>
 
 <div className="text-xs font-semibold text-zinc-900 dark:text-white">
@@ -432,7 +494,14 @@ console.log(`LinkedList has cycle: ${has_cycle(head)}`)
 
 <Row>
   <Col>
-## Palindrome Linked List (medium)
+## Palindrome Linked List
+
+<div className="flex justify-between">
+  <Tag variant="medium">Medium</Tag>
+  <a href="#">
+    <UpIcon className="h-5 w-5 flex-none fill-emerald-500 stroke-emerald-800 dark:fill-emerald-200/20 dark:stroke-emerald-200" />
+  </a>
+</div>
 
 Given the head of a Singly LinkedList, write a method to check if the LinkedList is a palindrome or not.
 
@@ -523,11 +592,17 @@ console.log(`Is palindrome: ${is_palindromic_linked_list(head)}`) // false
 </Col>
 </Row>
 
-
 <Row>
   <Col>
 
-## Middle of the Linked List (easy)
+## Middle of the Linked List
+
+<div className="flex justify-between">
+  <Tag variant="medium">Easy</Tag>
+  <a href="#">
+    <UpIcon className="h-5 w-5 flex-none fill-emerald-500 stroke-emerald-800 dark:fill-emerald-200/20 dark:stroke-emerald-200" />
+  </a>
+</div>
 
 Given the head of a Singly LinkedList, write a method to return the middle node of the LinkedList.
 
@@ -586,7 +661,14 @@ console.log(`Middle Node: ${find_middle_of_linked_list(head).value}`) // 4
 <Row>
   <Col>
 
-## Insert Interval (medium)
+## Insert Interval
+
+<div className="flex justify-between">
+  <Tag variant="medium">Medium</Tag>
+  <a href="#">
+    <UpIcon className="h-5 w-5 flex-none fill-emerald-500 stroke-emerald-800 dark:fill-emerald-200/20 dark:stroke-emerald-200" />
+  </a>
+</div>
 
 Given a list of non-overlapping intervals sorted by their start time, insert a given interval at the correct position and merge all necessary intervals to produce a list that has only mutually exclusive intervals.
 
@@ -602,8 +684,8 @@ Given a list of non-overlapping intervals sorted by their start time, insert a g
 </div>
 
 <div className="text-xs font-semibold text-zinc-900 dark:text-white">
-  <Tag variant="medium">SPACE</Tag> O(N) - as we need to return a list containing
-  all the merged intervals.
+  <Tag variant="medium">SPACE</Tag> O(N) - as we need to return a list
+  containing all the merged intervals.
 </div>
 
 </Col>
@@ -671,6 +753,266 @@ console.log(
     [1, 4]
   )}`
 ) // [[1,4], [5,7]]
+```
+
+</Col>
+</Row>
+
+<Row>
+  <Col>
+
+## Intervals Intersection
+
+<div className="flex justify-between">
+  <Tag variant="medium">Medium</Tag>
+  <a href="#">
+    <UpIcon className="h-5 w-5 flex-none fill-emerald-500 stroke-emerald-800 dark:fill-emerald-200/20 dark:stroke-emerald-200" />
+  </a>
+</div>
+
+Given two lists of intervals, find the intersection of these two lists. Each list consists of disjoint intervals sorted on their start time.
+
+- The idea is to compare the intervals one by one and see if they overlap or not.
+- If they overlap, then we need to find the overlapping part. The overlapping part will be equal to the maximum of the starting points and the minimum of the ending points.
+- If the intervals overlap, then the start time of the overlapping interval will be equal to the maximum of the start time of the two intervals.
+- If the intervals overlap, then the end time of the overlapping interval will be equal to the minimum of the end time of the two intervals.
+
+<div className="text-xs font-semibold text-zinc-900 dark:text-white">
+  <Tag variant="medium">TIME</Tag> O(N+M) - where ‘N’ and ‘M’ are the total
+  number of intervals in the input arrays respectively.
+</div>
+
+<div className="text-xs font-semibold text-zinc-900 dark:text-white">
+  <Tag variant="medium">SPACE</Tag> O(N+M) - as we need to return a list
+  containing all the intersecting intervals.
+</div>
+
+</Col>
+<Col>
+
+```js
+const merge = function (intervals_a, intervals_b) {
+  let result = [],
+    i = 0,
+    j = 0
+  while (i < intervals_a.length && j < intervals_b.length) {
+    // check if intervals overlap and intervals_a[i]'s start time lies within the other intervals_b[j]
+    let a_overlaps_b =
+      intervals_a[i][0] >= intervals_b[j][0] &&
+      intervals_a[i][0] <= intervals_b[j][1]
+    // check if intervals overlap and intervals_a[j]'s start time lies within the other intervals_b[i]
+    let b_overlaps_a =
+      intervals_b[j][0] >= intervals_a[i][0] &&
+      intervals_b[j][0] <= intervals_a[i][1]
+    // store the the intersection part
+    if (a_overlaps_b || b_overlaps_a) {
+      result.push([
+        Math.max(intervals_a[i][0], intervals_b[j][0]),
+        Math.min(intervals_a[i][1], intervals_b[j][1]),
+      ])
+    }
+    // move next from the interval which is finishing first
+    if (intervals_a[i][1] < intervals_b[j][1]) {
+      i += 1
+    } else {
+      j += 1
+    }
+  }
+  return result
+}
+
+// Test
+console.log(
+  `Intervals Intersection: ${merge(
+    [
+      [1, 3],
+      [5, 6],
+      [7, 9],
+    ],
+    [
+      [2, 3],
+      [5, 7],
+    ]
+  )}`
+) // [[2,3], [5,6], [7,7]]
+
+console.log(
+  `Intervals Intersection: ${merge(
+    [
+      [1, 3],
+      [5, 7],
+      [9, 12],
+    ],
+    [[5, 10]]
+  )}`
+) // [[5,7], [9,10]]
+```
+
+</Col>
+</Row>
+
+<Row>
+  <Col>
+
+## Conflicting Appointments
+
+<div className="flex justify-between">
+  <Tag variant="medium">Medium</Tag>
+  <a href="#">
+    <UpIcon className="h-5 w-5 flex-none fill-emerald-500 stroke-emerald-800 dark:fill-emerald-200/20 dark:stroke-emerald-200" />
+  </a>
+</div>
+
+Given an array of intervals representing ‘N’ appointments, find out if a person can attend all the appointments.
+
+- The idea is to sort the intervals by their start time.
+- Then, we can iterate through the intervals to see if any two intervals overlap or not.
+- Two intervals (‘a’ and ‘b’) overlap if ‘a’ starts before ‘b’ ends. i.e., `a.start < b.end`
+
+<div className="text-xs font-semibold text-zinc-900 dark:text-white">
+  <Tag variant="medium">TIME</Tag> O(NlogN) - where ‘N’ is the total number of
+  appointments. We are iterating the intervals only once which will take O(N),
+  in the beginning though, since we need to sort the intervals, our algorithm
+  will take O(NlogN).
+</div>
+
+<div className="text-xs font-semibold text-zinc-900 dark:text-white">
+  <Tag variant="medium">SPACE</Tag> O(N) - which is required for sorting.
+</div>
+
+</Col>
+<Col>
+
+```js
+const can_attend_all_appointments = function (intervals) {
+  intervals.sort((a, b) => a[0] - b[0])
+  for (let i = 1; i < intervals.length; i++) {
+    if (intervals[i][0] < intervals[i - 1][1]) {
+      // please note the comparison above, it is "<" and not "<="
+      // while merging we needed "<=" comparison, as we will be merging the two
+      // intervals having condition "intervals[i][start] == intervals[i - 1][end]" but
+      // such intervals don't represent conflicting appointments as one starts right
+      // after the other
+      return false
+    }
+  }
+  return true
+}
+
+// Test
+console.log(
+  `Can attend all appointments: ${can_attend_all_appointments([
+    [1, 4],
+    [2, 5],
+    [7, 9],
+  ])}`
+) // false
+
+console.log(
+  `Can attend all appointments: ${can_attend_all_appointments([
+    [6, 7],
+    [2, 4],
+    [8, 12],
+  ])}`
+) // true
+
+console.log(
+  `Can attend all appointments: ${can_attend_all_appointments([
+    [4, 5],
+    [2, 3],
+    [3, 6],
+  ])}`
+) // false
+```
+
+</Col>
+</Row>
+
+<Row>
+  <Col>
+
+## Maximum CPU Load
+
+<div className="flex justify-between">
+  <Tag variant="medium">Hard</Tag>
+  <a href="#">
+    <UpIcon className="h-5 w-5 flex-none fill-emerald-500 stroke-emerald-800 dark:fill-emerald-200/20 dark:stroke-emerald-200" />
+  </a>
+</div>
+
+We are given a list of Jobs. Each job has a Start time, an End time, and a CPU load when it is running. Our goal is to find the maximum CPU load at any time if all the jobs are running on the same machine.
+
+- The idea is to sort the jobs by their start time.
+- Then, we can iterate through the jobs to find the maximum CPU load at any time while all jobs are running.
+- While iterating, we will keep track of the maximum CPU load until the current job. To find the maximum CPU load at any time, we will take the maximum of the maximum CPU load until the previous job and the current job’s CPU load.
+- While iterating, we will also keep track of the current CPU load. To find the current CPU load, we will subtract the CPU load of all the jobs that have ended by the current job’s start time.
+- To find all the jobs that have ended by the current job’s start time, we can use a min-heap. Every time we are considering a job, we will add it to the min-heap. Also, before adding a new job to the min-heap, we will remove all the jobs that have ended.
+
+<div className="text-xs font-semibold text-zinc-900 dark:text-white">
+  <Tag variant="medium">TIME</Tag> O(NlogN) - where ‘N’ is the total number of
+  jobs. We are iterating the jobs only once which will take O(N), in the
+  beginning though, since we need to sort the jobs, our algorithm will take
+  O(NlogN).
+</div>
+
+<div className="text-xs font-semibold text-zinc-900 dark:text-white">
+  <Tag variant="medium">SPACE</Tag> O(N) - which is required for sorting. Also,
+  in the worst case, we have to insert all the jobs into the min-heap (when all
+  jobs overlap) which will also take O(N) space. The overall space complexity of
+  our algorithm is O(N).
+</div>
+
+</Col>
+<Col>
+
+```js
+const Heap = require('collections/heap')
+
+const find_max_cpu_load = function (jobs) {
+  // sort the jobs by start time
+  jobs.sort((a, b) => a[0] - b[0])
+
+  let maxLoad = 0
+  let currentLoad = 0
+  const minHeap = new Heap([], null, (a, b) => b[1] - a[1])
+  for (let i = 0; i < jobs.length; i++) {
+    const [start, end, load] = jobs[i]
+    // remove all the jobs that have ended
+    while (minHeap.length && minHeap.peek()[1] <= start) {
+      currentLoad -= minHeap.pop()[2]
+    }
+    // add the current job into the minHeap
+    minHeap.push(jobs[i])
+    currentLoad += load
+    maxLoad = Math.max(maxLoad, currentLoad)
+  }
+  return maxLoad
+}
+
+// Test
+console.log(
+  `Maximum CPU load at any time: ${find_max_cpu_load([
+    [1, 4, 3],
+    [2, 5, 4],
+    [7, 9, 6],
+  ])}`
+) // 7
+
+console.log(
+  `Maximum CPU load at any time: ${find_max_cpu_load([
+    [6, 7, 10],
+    [2, 4, 11],
+    [8, 12, 15],
+  ])}`
+) // 15
+
+console.log(
+  `Maximum CPU load at any time: ${find_max_cpu_load([
+    [1, 4, 2],
+    [2, 4, 1],
+    [3, 6, 5],
+  ])}`
+) // 8
 ```
 
 </Col>

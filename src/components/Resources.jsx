@@ -8,10 +8,10 @@ import { EnvelopeIcon } from '@/components/icons/EnvelopeIcon'
 import { UserIcon } from '@/components/icons/UserIcon'
 import { UsersIcon } from '@/components/icons/UsersIcon'
 
-const resources = [
+const contacts = [
   {
-    href: '/contacts',
-    name: 'Contacts',
+    href: '/email',
+    name: 'Email',
     description:
       'Learn about the contact model and how to create, retrieve, update, delete, and list contacts.',
     icon: UserIcon,
@@ -148,7 +148,7 @@ export function Resources() {
         Resources
       </Heading>
       <div className="not-prose mt-4 grid grid-cols-1 gap-8 border-t border-zinc-900/5 pt-10 dark:border-white/5 sm:grid-cols-2 xl:grid-cols-4">
-        {resources.map((resource) => (
+        {contacts.map((resource) => (
           <Resource key={resource.href} resource={resource} />
         ))}
       </div>

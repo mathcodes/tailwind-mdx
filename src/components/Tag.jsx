@@ -33,6 +33,9 @@ const colorStyles = {
 }
 
 const valueColorMap = {
+  hard: 'rose',
+  medium: 'amber',
+  easy: 'emerald',
   time: 'emerald',
   space: 'amber',
   get: 'emerald',
