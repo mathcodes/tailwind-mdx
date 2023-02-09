@@ -38,7 +38,7 @@ const valueColorMap = {
   easy: 'emerald',
   time: 'emerald',
   space: 'amber',
-  get: 'emerald',
+  get: 'pink',
   post: 'sky',
   put: 'amber',
   delete: 'rose',
@@ -47,7 +47,7 @@ const valueColorMap = {
 export function Tag({
   children,
   variant = 'medium',
-  color = valueColorMap[children.toLowerCase()] ?? 'emerald',
+  color = valueColorMap[children.toLowerCase()] ?? 'pink',
 }) {
   return (
     <span

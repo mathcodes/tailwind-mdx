@@ -9,6 +9,7 @@ const people = [
       'https://www.contentfordevelopers.com/CforD2.png',
     gitHubUrl: 'https://www.github.com/mathcodes/contentfordevelopers',
     liveUrl: '#',
+    page: 'contentfordevelopers',
   },
   {
     name: 'TypeScript Tags Todo',
@@ -57,28 +58,24 @@ export default function Cards() {
   return (
     <div className="bg-none py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 text-center lg:px-8">
-        <div className="mx-auto max-w-2xl">
-          <p className="mt-1 text-lg leading-8 text-gray-400">
-            Click on the images to get more details about the project. 
-          </p>
-        </div>
         <ul
           description="list"
           className="mx-auto mt-20 grid max-w-2xl grid-cols-1 gap-6 sm:grid-cols-2 lg:mx-0 lg:max-w-none xl:grid-cols-3 lg:gap-8 list-none"
         >
           {people.map((person) => (
-            <li key={person.name} className="rounded-2xl bg-gray-100  drop-shadow-lg dark:bg-gray-800 py-10 px-8">
+            <li key={person.name} className="rounded-2xl bg-gray-100 drop-shadow-lg dark:bg-gray-600 py-10 px-8">
+
               <img className="mx-auto h-48 w-48 md:h-56 md:w-56" src={person.imageUrl} alt="" />
               <h3 className="mt-6 text-base font-semibold leading-7 tracking-tight text-zinc-600 transition hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white">{person.name}</h3>
               <p className="text-sm leading-6 text-gray-400">{person.description}</p>
               <div description="list" className="mt-6 flex justify-around gap-x-6 list-none text-zinc-600 transition hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white">
                 <div>
-                  <a href={person.gitHubUrl} className="text-gray-600 hover:text-black dark:hover:text-white">
+                  <a href={person.gitHubUrl} className="text-pink-600 hover:text-black dark:hover:text-white">
                    <GitHubIcon />
                   </a>
                 </div>
                 <div>
-                  <a href={person.liveUrl} className="text-gray-600 hover:text-black dark:hover:text-white">
+                  <a href={person.liveUrl} className="text-pink-600 hover:text-black dark:hover:text-white">
                    <LinkIcon />
                   </a>
                 </div>
