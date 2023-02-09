@@ -209,7 +209,7 @@ export function Navigation(props) {
   return (
     <nav {...props}>
       <ul role="list">
-      <TopLevelNavItem href="./">API</TopLevelNavItem>
+      <TopLevelNavItem href="./">Home</TopLevelNavItem>
         <TopLevelNavItem href="/about">About</TopLevelNavItem>
         <TopLevelNavItem href="/projects">Projects</TopLevelNavItem>
         <TopLevelNavItem href="/services">Services</TopLevelNavItem>

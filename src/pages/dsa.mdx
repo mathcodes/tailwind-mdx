@@ -1,7 +1,28 @@
 export const description =
   'In this section we will review 14 major patterns and problems used in Data Structures and Algorithms. We will also review the most common solutions to these problems and their time and space complexity.'
 
-# Sliding Window
+# Data Structures and Algorithms
+
+In this section we will review 14 major patterns and problems used in Data Structures and Algorithms. We will also review the most common solutions to these problems and their time and space complexity.  
+
+## Table of Contents
+
+
+- [Sliding Window](#sliding-window)
+  - [Maximum sum subarray of size K (easy)](#maximum-sum-subarray-of-size-k-easy)
+  - [Longest substring with `K` distinct characters (medium)](#longest-substring-with-k-distinct-characters-medium)
+  - [Triplets that sum to zero (medium)](#triplets-that-sum-to-zero-medium)
+- [Two Pointers](#two-pointers)
+  - [Pair with target sum (easy)](#pair-with-target-sum-easy)
+  - [Remove duplicates (easy)](#remove-duplicates-easy)
+  - [Squaring a sorted array (easy)](#squaring-a-sorted-array-easy)
+  - [Triplet sum to zero (medium)](#triplet-sum-to-zero-medium)
+  - [Triplet sum close to target (medium)](#triplet-sum-close-to-target-medium)
+  - [Triplets with smaller sum (medium)](#triplets-with-smaller-sum-medium)
+  - [Subarrays with product less than a target (medium)](#subarrays-with-product-less-than-a-target-medium)
+  - [Dutch national flag problem (medium)](#dutch-national-flag-problem-medium)
+
+## Sliding Window
 
 A pattern used when given an `array` or `linked list`. Used when we need to perform a required operation on a specific window size.
 
@@ -471,4 +492,52 @@ var threeSum = function(nums) {
   return result
 }
 
+```
+
+## Pair with target sum (easy)
+
+Given an array[1, 2, 3, 4, 6] with target sum:
+- pointer1 points to the first element of an array, which is 1
+- pointer2 points to the last element, which is 6
+- First, 1 + 6 > target sum (6) so let's decrement pointer2
+- Now, pointer 2 points to the second to the last element, which is 4
+- Second, 1+ 4 < target sum (6) so let's increment pointer1
+- Now, pointer 1 points to the second element, which is 2)
+- ... so on until finding the pair which has the equal value to the target sum
+
+
+```js
+function pair_with_target_sum(arr, targetSum) {
+  // pointer1 , pointing the first element
+  let left = 0;
+  // pointer2, pointing the last element
+  let right = arr.length - 1; 
+  
+  // until two pointers cross each other
+  while (left < right) {
+    const currentSum = arr[left] + arr[right];
+    // returns the index (pointer1, pointer2)
+    // if arr[pointer1] + arr[pointer2] == targetSum
+    if (currentSum === targetSum) {
+      return [left, right];
+    }
+
+    // if arr[pointer1] + arr[pointer2] < targetSum
+    if (targetSum > currentSum) {
+      // increment pointer1
+      // we need bigger sum
+      left += 1;
+    } else {
+      // increment pointer2
+      // we need smaller sum      
+      right -= 1;
+    }
+  }
+  // if not found, return [-1, -1]
+  return [-1, -1];
+}
+
+
+console.log(pair_with_target_sum([1, 2, 3, 4, 6], 6));
+console.log(pair_with_target_sum([2, 5, 9, 11], 11));
 ```

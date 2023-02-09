@@ -7,6 +7,11 @@ import logoNode from '@/images/logos/node.svg'
 import logoPhp from '@/images/logos/php.svg'
 import logoPython from '@/images/logos/python.svg'
 import logoRuby from '@/images/logos/ruby.svg'
+import logoJavaScript from '@/images/logos/javascript.png'
+import logoReact from '@/images/logos/react.svg'
+import logoTailwind from '@/images/logos/tailwind.svg'
+import logoGithub from '@/images/logos/github.svg'
+import logoNext from '@/images/logos/next.svg'
 
 const libraries = [
   {
@@ -41,9 +46,44 @@ const libraries = [
     href: '#',
     name: 'Go',
     description:
-      'An open-source programming language supported by Google with built-in concurrency.',
+      'Go is an open source programming language that makes it easy to build simple, reliable, and efficient software.',
     logo: logoGo,
   },
+  {
+    href: '#',
+    name: 'JavaScript',
+    description:
+      'JavaScript is a scripting or programming language that allows you to implement complex features on web pages.',
+    logo: logoJavaScript,
+  },
+  {
+    href: '#',
+    name: 'React',
+    description:
+      'React is a JavaScript library for building user interfaces.',
+    logo: logoReact,
+  },
+  {
+    href: '#',
+    name: 'Tailwind CSS',
+    description:
+      'A utility-first CSS framework for rapidly building custom designs.',
+    logo: logoTailwind,
+  },
+  {
+    href: '#',
+    name: 'Next.js',
+    description:
+      'The React Framework for Production — Build the best static and dynamic React apps with Next.js.',
+    logo: logoNext,
+  },
+  {
+    href: '#',
+    name: 'GitHub',
+    description:
+      'GitHub is a development platform inspired by the way you work. From open source to business, you can host and review code, manage projects, and build software alongside 50 million developers.',
+    logo: logoGithub,
+  },  
 ]
 
 export function Libraries() {
