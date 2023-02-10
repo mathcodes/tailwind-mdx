@@ -204,10 +204,10 @@ lengthOfLongestSubstringKDistinct('atatrasrafr', 4) // returns 9
 
 ## Two Pointers {{ className: 'text-3xl rounded-md pl-2 bg-gradient-to-r from-[#D7EDEA] to-[#F4FBDF] opacity-100 transition duration-300 group-hover:opacity-100 dark:from-[#202D2E] dark:to-[#303428]' }}
 
-<Row>
+<Row >
   <Col>
 
-## Pair with target sum
+### Pair with target sum {{id:"pair-with-target-sum"}}
 
 <div className="flex justify-between">
   <Tag variant="medium">Easy</Tag>
@@ -216,13 +216,13 @@ lengthOfLongestSubstringKDistinct('atatrasrafr', 4) // returns 9
   </a>
 </div>
 
-Given an array[1, 2, 3, 4, 6] with target sum:
+Given an array[1, 2, 3, 4, 6] with target sum 6:
 
 - pointer1 points to the first element of an array, which is 1
 - pointer2 points to the last element, which is 6
 - First, 1 + 6 > target sum (6) so let's decrement pointer2
 - Now, pointer 2 points to the second to the last element, which is 4
-- Second, 1+ 4 < target sum (6) so let's increment pointer1
+- Second, 1 + 4 < target sum (6) so let's increment pointer1
 - Now, pointer 1 points to the second element, which is 2)
 - ... so on until finding the pair which has the equal value to the target sum
 
@@ -268,14 +268,19 @@ console.log(pair_with_target_sum([2, 5, 9, 11], 11))
 </Row>
 
 <Row>
-  <Col>
-## Squaring a sorted array
-<div className="flex justify-between">
-<Tag variant="medium">Medium</Tag> 
-<a href="#">
-  <UpIcon className="h-5 w-5 flex-none fill-pink-500 stroke-pink-800 dark:fill-pink-200/20 dark:stroke-pink-200" />
-</a>
-</div>
+  <Col >
+  <div className="flex justify-between align-middle width={full}">
+    <div className="px-6 flex justify-between text-pink-500 hover:text-emerald-900 text-xl font-semibold bg-zinc-900 rounded-md p-2 hover:text-3xl "  id="squaring-a-sorted-array" >
+      Squaring a sorted array 
+      <a href="#" className="px-6 space-x-4" style={{alignSelf:'center'}}>
+        <UpIcon className="h-5 w-5 px-3.5 flex-none fill-pink-500   stroke-pink-800 dark:fill-pink-200/20 dark:stroke-pink-200" />
+      </a> 
+      <div className="flex justify-between px-6"> 
+        FF
+      </div>
+    </div>
+  </div>
+<Tag variant="medium">Medium</Tag> <hr className="h-.5 p-0 m-0"/>
 Given a sorted array, create a new array containing squares of all the numbers of the input array in the sorted order.
 
 - First, we can use two pointers to iterate through the array.
@@ -1015,3 +1020,13 @@ console.log(
 
 </Col>
 </Row>
+
+
+Different methods fo learning, such as learning tools, drawing/diagram craeators, audio, video, etc.
+List the top 10 methods for learning code and provide links to access each method:
+
+Method 1: Visual Learning
+Resources: https://www.codingforvisuallearners.com/
+
+Method 2: Audio Learning
+Resources: https://www.codingforauditorylearners.com/ 

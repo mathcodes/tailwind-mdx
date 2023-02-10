@@ -9,9 +9,7 @@ export function BellIcon(props) {
       <path
         fill="none"
         strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M7.5 15.5v0a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v0"
-      />
+        strokeLinejoin="round" d="M7.5 15.5v0a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v0" />
     </svg>
   )
 }

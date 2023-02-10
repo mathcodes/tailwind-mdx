@@ -197,7 +197,9 @@ export const navigation = [
       { title: 'About', href: '/about', icon: 'About' },
       { title: 'Projects', href: '/projects', icon: 'Projects' },
       { title: 'Services', href: '/services', icon: 'Services' },
+      { title: 'Articles', href: '/articles',   icon: 'Articles' },
       { title: 'DSA', href: '/dsa',   icon: 'DSA' },
+      { title: 'Contact', href: '/contact', icon: 'Contact'}
     ],
   },
   {
@@ -220,7 +222,9 @@ export function Navigation(props) {
         <TopLevelNavItem href="/about">About</TopLevelNavItem>
         <TopLevelNavItem href="/projects">Projects</TopLevelNavItem>
         <TopLevelNavItem href="/services">Services</TopLevelNavItem>
+        <TopLevelNavItem href="/articles">Articles</TopLevelNavItem>
         <TopLevelNavItem href="/dsa">DSA</TopLevelNavItem>
+        <TopLevelNavItem href="/contact">Contact</TopLevelNavItem>
         {navigation.map((group, groupIndex) => (
           <NavigationGroup
             key={group.title}
