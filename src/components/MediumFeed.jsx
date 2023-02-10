@@ -35,7 +35,7 @@ export const BookIcon = (props) => {
             fill-rule="oddeven"
             stroke="currentColor"
             stroke-width="2.5"
-      
+
         strokeLinecap="round"
         strokeLinejoin="round"
         d="m17.5 2.5-7.5 3v12l7.5-3v-12Z"
@@ -58,7 +58,7 @@ function MediumFeed() {
         setBlogs(data.items)
       })
   }, [])
-  
+
   useEffect(() => {
     fetch('https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@jcircle9')
     .then(resp => resp.json())
@@ -74,7 +74,7 @@ function MediumFeed() {
       <ol>Jon's Favorites</ol>
       <ol>Jon's DSA</ol>
     </ul>
-   
+
 
     <div className= "App" >
       <h1>Jon's Articles</h1>
@@ -84,7 +84,7 @@ function MediumFeed() {
         return <div>
           <a href={blog.link} target="_blank" rel="noopener noreferrer"className='flex justify-around my-32'>
             <h3>{blog.title}</h3>
-          <img src={blog.thumbnail} alt={blog.title} className="w-1/3 h-1/3"/><br />
+          <Image src={blog.thumbnail} alt={blog.title} className="w-1/3 h-1/3"/><br />
           <MagGlass />
           <BookIcon />
           </a>
@@ -94,14 +94,14 @@ function MediumFeed() {
   }
 
       <h1>Jon's Favorites</h1>
-      
+
 
   {
     blogs.map(blog => {
       while (`${blog.title}` === "Individual Learning Styles and Learning to Code") {
         return <div>
           <h3>{blog.title}</h3>
-          <img src={blog.thumbnail} alt={blog.title} className="w-1/3 h-1/3"/><br />
+          <Image src={blog.thumbnail} alt={blog.title} className="w-1/3 h-1/3"/><br />
           <a href={blog.link} target="_blank" rel="noopener noreferrer">View Blog Post</a>
         </div>
       }

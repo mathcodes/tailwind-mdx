@@ -65,7 +65,7 @@ export default function Cards() {
           {people.map((person) => (
             <li key={person.name} className="rounded-2xl bg-gray-100 drop-shadow-lg dark:bg-gray-600 py-10 px-8">
 
-              <img className="mx-auto h-48 w-48 md:h-56 md:w-56" src={person.imageUrl} alt="" />
+              <Image className="mx-auto h-48 w-48 md:h-56 md:w-56" src={person.imageUrl} alt="" />
               <h3 className="mt-6 text-base font-semibold leading-7 tracking-tight text-zinc-600 transition hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white">{person.name}</h3>
               <p className="text-sm leading-6 text-gray-400">{person.description}</p>
               <div description="list" className="mt-6 flex justify-around gap-x-6 list-none text-zinc-600 transition hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white">
