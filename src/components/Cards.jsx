@@ -1,5 +1,6 @@
 import { LinkIcon } from '../components/icons/LinkIcon'
 import { GitHubIcon } from './icons/GitHubIcon'
+import { Image } from 'next/image'
 
 const people = [
   {
